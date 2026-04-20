@@ -1,6 +1,8 @@
 # 📸 Timelapse Tool
 
-Un utilitaire léger en Go qui transforme votre webcam en caméra de timelapse. Il gère automatiquement le téléchargement de FFmpeg et permet de compiler les photos en vidéo MP4.
+Un utilitaire léger qui transforme votre webcam en caméra de timelapse. Il gère automatiquement le téléchargement de FFmpeg et permet de compiler les photos en vidéo MP4.
+
+![logo](little-timelapse.png)
 
 # 🚀 Guide de démarrage rapide (Windows)
 
