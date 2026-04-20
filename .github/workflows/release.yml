@@ -1,0 +1,29 @@
+name: Release Go App
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Build Windows Executable
+        run: |
+          GOOS=windows GOARCH=amd64 go build -o timelapse-tool.exe main.go
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: timelapse-tool.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

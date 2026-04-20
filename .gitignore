@@ -1,0 +1,28 @@
+# --- Binaires Go ---
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+bin/
+
+# --- FFmpeg (Téléchargé automatiquement) ---
+# On ignore le dossier où FFmpeg est extrait et le zip temporaire
+ffmpeg_bin/
+ffmpeg_temp.zip
+
+# --- Données de Projet (Photos & Vidéos) ---
+# On ignore les dossiers de timelapse que tu crées avec -projet
+# Si tu veux garder un dossier spécifique, tu peux l'exclure ici
+/MonProjet/
+/Test*/
+*.mp4
+
+# --- Dépendances et IDE ---
+.vscode/
+.idea/
+vendor/
+go.sum
+
+ffmpeg_bin/
+ffmpeg_bin/
