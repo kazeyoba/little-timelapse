@@ -54,22 +54,3 @@ Pas besoin d'installer Go ou FFmpeg manuellement, suivez simplement ces étapes 
 1. **Auto-Setup** : Au premier lancement, le programme télécharge une version portable de FFmpeg dans le dossier `ffmpeg_bin`.
 2. **Capture** : Utilise l'API `dshow` (DirectShow) de Windows pour capturer des images en haute résolution (1920x1080).
 3. **Reprise** : Si vous relancez le script sur un projet existant, il détecte automatiquement le dernier numéro d'image pour ne pas écraser vos fichiers.
-
-# 🏗️ Compilation (Pour les développeurs)
-
-Si vous souhaitez modifier le code et compiler vous-même :
-
-1. Installez [Go](https://go.dev/).
-2. Clonez le repo.
-3. Compilez :
-   ```bash
-   go build -o timelapse.exe main.go
-   ```
-
----
-*Note : Pour le mode `--render`, le script utilise actuellement l'encodeur matériel NVIDIA (`h264_nvenc`). Si vous n'avez pas de GPU NVIDIA, modifiez la ligne correspondante dans le code par `libx264`.*
-```
-
-## Quelques conseils pour ton code :
-1. **Sécurité des erreurs** : Dans ton code, tu utilises souvent `_` pour ignorer les erreurs (notamment dans `unzip` et `os.Create`). Pour un outil de production, il vaut mieux vérifier si l'écriture sur disque échoue (disque plein, droits admin requis).
-2. **Encodeur Vidéo** : Comme indiqué dans le README, `h264_nvenc` est génial mais spécifique aux cartes NVIDIA. Si tu veux que ton outil soit universel, tu pourrais ajouter un flag `--gpu` ou utiliser `libx264` (CPU) par défaut qui fonctionne partout.
